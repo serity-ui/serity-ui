@@ -1,3 +1,4 @@
+import type * as CSS from 'csstype'
 import styled from 'styled-components'
 import { Placement } from './types'
 import { radii } from './radius'
@@ -7,12 +8,13 @@ interface StyleProps {
   placement: Placement
   radius: any
   positionRef: any
-  bg: string
+  bg: CSS.Property.Color
+  color: CSS.Property.Color
 }
 
 interface CommandProps {
-  color: string
-  background: string
+  color: CSS.Property.Color
+  background: CSS.Property.Color
 }
 
 function negate(placement: Placement) {
@@ -37,7 +39,7 @@ export const StyledTooltip = styled.div<StyleProps>`
   font-weight: normal;
   letter-spacing: 0.02rem;
   background-color: ${(props) => props.bg};
-  color: rgba(255, 255, 255, 1);
+  color: ${(props) => props.color};
   pointer-events: none;
   padding: 9px 15px;
   border-radius: ${(props) => radii[props.radius]};

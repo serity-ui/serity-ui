@@ -8,12 +8,23 @@ export default {
   component: Tooltip,
   argTypes: {
     bg: { control: 'color' },
+    color: { control: 'color' },
+    commandBg: { control: 'color' },
+    commandColor: { control: 'color' },
   },
 } as ComponentMeta<typeof Tooltip>
 
 const Template: ComponentStory<typeof Tooltip> = (args) => (
   <Tooltip {...args}>
-    <button style={{ background: '#007BFF', color: 'white', borderRadius: '10px', border: 'none', padding: '10px' }}>
+    <button
+      style={{
+        background: '#007BFF',
+        color: 'white',
+        borderRadius: '10px',
+        border: 'none',
+        padding: '10px',
+      }}
+    >
       Hover me
     </button>
   </Tooltip>

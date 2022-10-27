@@ -14,6 +14,7 @@ function Tooltip({
   commandColor = 'white',
   commandBg = '#486581',
   bg = '#102A43',
+  color = 'rgba(255, 255, 255, 1)',
   children,
 }: TooltipProps) {
   const [show, setShow] = useState<number>(0)
@@ -56,6 +57,7 @@ function Tooltip({
             radius={borderRadius}
             placement={placement}
             bg={bg}
+            color={color}
             role='tooltip'
           >
             {label}

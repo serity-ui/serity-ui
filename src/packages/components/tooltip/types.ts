@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import type * as CSS from 'csstype'
 
 export type Alignment = 'start' | 'end'
 export type Side = 'top' | 'right' | 'bottom' | 'left'
@@ -38,7 +39,9 @@ export interface TooltipProps {
   /**
    * Custom background color for the tooltip
    */
-  bg?: string
+  bg?: CSS.Property.Color
+
+  color?: CSS.Property.Color
 
   variant?: 'solid' | 'subtle'
 
@@ -50,9 +53,9 @@ export interface TooltipProps {
 
   command?: string
 
-  commandColor?: string
+  commandColor?: CSS.Property.Color
 
-  commandBg?: string
+  commandBg?: CSS.Property.Color
 
   args: any
 }
