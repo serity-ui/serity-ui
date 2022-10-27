@@ -45,7 +45,12 @@ const point = () => ({
  * @param offset: A number represents the distance (gutter or margin) between the floating element and the reference element.
  * @returns: x, y, reset, restrictRect
  */
-export const computePostion = (referenceElement: any, floatingElement: any, placement: Placement, offset: number) => {
+export const computePostion = (
+  referenceElement: any,
+  floatingElement: any,
+  placement: Placement,
+  offset: number,
+) => {
   let recurCount = 0
   const pt = point()
 
@@ -58,25 +63,35 @@ export const computePostion = (referenceElement: any, floatingElement: any, plac
     switch (placement) {
       case 'left':
         pt.x = elRect.left - (floatingElement.offsetWidth + offset)
-        pt.y = elRect.top + (referenceElement.offsetHeight - floatingElement.offsetHeight) / 2
+        pt.y =
+          elRect.top +
+          (referenceElement.offsetHeight - floatingElement.offsetHeight) / 2
         break
       case 'right':
         pt.x = elRect.right + offset
-        pt.y = elRect.top + (referenceElement.offsetHeight - floatingElement.offsetHeight) / 2
+        pt.y =
+          elRect.top +
+          (referenceElement.offsetHeight - floatingElement.offsetHeight) / 2
         break
       case 'top':
-        pt.x = elRect.left + (referenceElement.offsetWidth - floatingElement.offsetWidth) / 2
+        pt.x =
+          elRect.left +
+          (referenceElement.offsetWidth - floatingElement.offsetWidth) / 2
         pt.y = elRect.top - (floatingElement.offsetHeight + offset)
         break
       default:
-        pt.x = elRect.left + (referenceElement.offsetWidth - floatingElement.offsetWidth) / 2
+        pt.x =
+          elRect.left +
+          (referenceElement.offsetWidth - floatingElement.offsetWidth) / 2
         pt.y = elRect.bottom + offset
     }
 
     if (recurCount < 3) {
       if (
-        (isHorizontal(placement) && (pt.x < boundary.left || pt.x > boundary.right)) ||
-        (isVertical(placement) && (pt.y < boundary.top || pt.y > boundary.bottom))
+        (isHorizontal(placement) &&
+          (pt.x < boundary.left || pt.x > boundary.right)) ||
+        (isVertical(placement) &&
+          (pt.y < boundary.top || pt.y > boundary.bottom))
       ) {
         pt.reset(recursive(negate(placement)))
       }

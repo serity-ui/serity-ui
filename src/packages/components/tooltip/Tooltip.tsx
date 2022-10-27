@@ -22,7 +22,12 @@ function Tooltip({
 
   const handleMouseOver = (e: any) => {
     setShow(1)
-    positionRef.current = computePostion(e.currentTarget, tooltipRef.current, placement, offset)
+    positionRef.current = computePostion(
+      e.currentTarget,
+      tooltipRef.current,
+      placement,
+      offset,
+    )
   }
   const handleMouseOut = () => setShow(0)
 
@@ -62,7 +67,9 @@ function Tooltip({
                     <StyledCommand background={commandBg} color={commandColor}>
                       {command}
                     </StyledCommand>
-                    {commands.length > 1 && index < commands.length - 1 ? <StyledSeparator>+</StyledSeparator> : null}
+                    {commands.length > 1 && index < commands.length - 1 ? (
+                      <StyledSeparator>+</StyledSeparator>
+                    ) : null}
                   </>
                 ))}
               </>
