@@ -20,8 +20,7 @@ export enum borderRadius {
 
 export interface TooltipProps {
   /**
-   * The React component to use as the
-   * trigger or reference for the tooltip.
+   * The React component to use as the trigger or reference for the tooltip.
    */
   children: ReactElement
   /**
