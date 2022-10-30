@@ -13,7 +13,7 @@ function Tooltip({
   command,
   commandColor = 'white',
   commandBg = '#486581',
-  bg = '#102A43',
+  bg = 'rgba(0, 5, 11, 0.9)',
   color = 'rgba(255, 255, 255, 1)',
   children,
 }: TooltipProps) {

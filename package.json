@@ -1,18 +1,36 @@
 {
   "name": "serity-ui",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx,stories.tsx}\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "react",
+    "tooltip",
+    "typescript",
+    "custom"
+  ],
+  "author": "Serity UI (serity-ui)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serity-ui/serity-ui.git"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@storybook/addon-actions": "^6.5.13",
@@ -44,5 +62,8 @@
     "@mdx-js/react": "^2.1.5",
     "csstype": "^3.1.1",
     "styled-components": "^5.3.6"
+  },
+  "peerDependencies": {
+    "react": ">=16"
   }
 }

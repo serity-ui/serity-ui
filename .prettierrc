@@ -1,7 +1,11 @@
 {
   "bracketSpacing": true,
   "jsxSingleQuote": true,
+<<<<<<< HEAD
   "printWidth": 120,
+=======
+  "printWidth": 100,
+>>>>>>> 9bec9a75f73c8f83aeba20add31384accdf3be72
   "proseWrap": "always",
   "semi": false,
   "singleQuote": true,

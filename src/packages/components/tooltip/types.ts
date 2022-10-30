@@ -55,6 +55,4 @@ export interface TooltipProps {
   commandColor?: CSS.Property.Color
 
   commandBg?: CSS.Property.Color
-
-  args: any
 }
