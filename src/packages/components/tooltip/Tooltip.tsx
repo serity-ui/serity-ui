@@ -12,7 +12,7 @@ function Tooltip({
   disabled = 0,
   command,
   commandColor = 'white',
-  commandBg = '#486581',
+  commandBg = 'rgba(255, 255, 255, .2)',
   bg = 'rgba(0, 5, 11, 0.9)',
   color = 'rgba(255, 255, 255, 1)',
   children,
