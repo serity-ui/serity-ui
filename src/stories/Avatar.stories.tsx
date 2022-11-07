@@ -21,3 +21,18 @@ export const WithoutSrc = Template.bind({})
 WithoutSrc.args = {
   name: 'Edman Cota'
 }
+
+export const Fallback = Template.bind({})
+
+
+export const BrokenImageWithoutName = Template.bind({})
+BrokenImageWithoutName.args = {
+  src: 'https://bit.ly/broken-link'
+}
+
+export const BrokenImageWithName = Template.bind({})
+BrokenImageWithName.args = {
+  name: 'Edman Cota',
+  src: 'https://bit.ly/broken-link'
+}
+
