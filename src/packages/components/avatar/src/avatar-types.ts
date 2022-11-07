@@ -23,6 +23,10 @@ export interface AvatarOptions {
    */
   src?: string
   /**
+   * List of sources to use for different screen resolutions
+   */
+  srcSet?: string
+  /**
    * The default avatar used as fallback when `name`, and `src` is not specified.
    * @type React.ReactElement
   */

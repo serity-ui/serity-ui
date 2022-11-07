@@ -59,6 +59,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "@chakra-ui/react-use-safe-layout-effect": "^2.0.2",
     "@mdx-js/react": "^2.1.5",
     "csstype": "^3.1.1",
     "styled-components": "^5.3.6"
