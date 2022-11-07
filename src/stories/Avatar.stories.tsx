@@ -35,4 +35,5 @@ BrokenImageWithName.args = {
   name: 'Edman Cota',
   src: 'https://bit.ly/broken-link'
 }
-
+// remove chakra-ui dependencies for safe-layout-effect
+// set default sizes and custome sizes
