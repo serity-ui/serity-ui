@@ -1,4 +1,7 @@
 # Serity UI
+
+![npm (scoped)](https://img.shields.io/npm/v/@serity-ui/react) ![npm](https://img.shields.io/npm/dm/@serity-ui/react) ![GitHub Repo stars](https://img.shields.io/github/stars/serity-ui/serity-ui)
+
 React UI library that contains easy-to-use components.
 
 Serity UI provides a set of accesible, reusable, and composable React components that make it super easy to create websites and apps.
