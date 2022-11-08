@@ -42,9 +42,10 @@ export const StyledTooltip = styled.div<StyleProps>`
   color: ${(props) => props.color};
   pointer-events: none;
   padding: 9px 15px;
+  display: flex;
+  align-items: center;
   border-radius: ${(props) => radii[props.radius]};
   z-index: 99999;
-  display: inline-block;
   white-space: nowrap;
   opacity: ${(props) => props.show};
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -56,11 +57,12 @@ export const StyledTooltip = styled.div<StyleProps>`
   transform-origin: ${(props) => negate(props.placement)};
   transform: scale(${(props) => (props.show ? 1 : 0.7)});
 `
-export const StyledCommand = styled.span<CommandProps>`
+export const StyledCommand = styled.kbd<CommandProps>`
   background-color: ${(props) => props.background};
   color: ${(props) => props.color};
   padding: 3px 6px;
-  min-width: 12px;
+  display: flex;
+  justify-content: center;
   border-radius: 4px;
   font-size: 12px;
 `
