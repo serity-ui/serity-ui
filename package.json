@@ -1,6 +1,6 @@
 {
   "name": "@serity-ui/react",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "React UI library that contains easy-to-use components.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
