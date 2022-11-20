@@ -1,6 +1,6 @@
 .nice-select {
     -webkit-tap-highlight-color: transparent;
-    background-color: #fff;
+     background-color: #2C313C;
     border-radius: 5px;
     width: 300px;
     cursor: pointer;
@@ -22,26 +22,28 @@
   content: "";
   position: absolute;
   right: 20px;
-  top: 15px;
+  top: 16px;
   z-index: 1000;
-  width: 4px;
-  height: 4px;
+  width: 7px;
+  height: 7px;
   border: 2px solid #fff;
-  border-top: 2px solid #1A202C;
-  border-right: 2px solid #1A202C;
+  border-top: 2px solid #2C313C;
+  border-right: 2px solid #2C313C;
   transform: rotate(-45deg);
   transition: 0.5s;
   pointer-events: none;
 }
+.nice-select.active::before {
+  top: 20px;
+  transform: rotate(-225deg);
+}
 
 .nice-select input {
-  /* position: absolute; */
-  /* top: 0;
-  left: 0; */
+  padding-left: 18px;
   width: 100%;
   height: 100%;
   cursor: pointer;
-  background-color: #1A202C;
+  background-color: #2C313C;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -50,7 +52,7 @@
 }
 
 .nice-select .list {
-  background-color: #1A202C;
+  background-color: #2C313C;
   border-radius: 5px;
   border: 1px solid rgba(68, 68, 68, 0.11);
   box-sizing: border-box;
@@ -75,8 +77,8 @@
 .nice-select.active .list {
   display: block;
   opacity: 1;
-    pointer-events: auto;
-    transform: scaleY(1) translateY(0);
+  pointer-events: auto;
+  transform: scaleY(1) translateY(0);
 }
 
 .nice-select .list li {
