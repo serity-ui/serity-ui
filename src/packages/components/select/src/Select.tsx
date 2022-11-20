@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react'
 import './styles.css'
 
 interface Props {
-  children: any
+  children: React.ReactNode
   value?: string
 }
 
@@ -13,7 +13,7 @@ interface TriggerProps {
 
 const ThemeContext = createContext<any>('')
 
-export default function Select({ children }: Props) {
+export function Select({ children }: Props) {
   const [toggle, setToggle] = useState(false)
   const [theme, setTheme] = useState('')
   return (
@@ -25,7 +25,7 @@ export default function Select({ children }: Props) {
   )
 }
 
-Select.Trigger = function SelectTrigger({ value, placeholder }: TriggerProps) {
+export const SelectTrigger = ({ value, placeholder }: TriggerProps) => {
   const { theme } = useContext(ThemeContext)
   let valor = value
   if (theme !== '') {
@@ -34,7 +34,7 @@ Select.Trigger = function SelectTrigger({ value, placeholder }: TriggerProps) {
   return <input type='text' placeholder={placeholder} value={valor} readOnly />
 }
 
-Select.Content = function SelectContent({ children }: Props) {
+export const SelectContent = ({ children }: Props) => {
   return <ul className='list'>{children}</ul>
 }
 
