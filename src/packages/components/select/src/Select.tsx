@@ -11,11 +11,11 @@ interface TriggerProps {
   placeholder: string
 }
 
-const ThemeContext = createContext('')
+const ThemeContext = createContext<any>('')
 
 export default function Select({ children }: Props) {
   const [toggle, setToggle] = useState(false)
-  const [theme, setTheme] = useState<string>('')
+  const [theme, setTheme] = useState('')
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div className={`nice-select ${toggle ? 'active' : ''}`} onClick={() => setToggle(!toggle)}>
