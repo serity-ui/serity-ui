@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import Select from "../packages/components/select/src/select";
+import Select from "../packages/components/select/src/Select";
 
 export default {
   title: 'Example/Select',
@@ -9,7 +9,9 @@ export default {
 } as ComponentMeta<typeof Select>
 
 const Template: ComponentStory<typeof Select> = (args) => (
-  <Select />
+  <Select {...args}>
+
+  </Select>
 )
 
 export const Basic = Template.bind({})
