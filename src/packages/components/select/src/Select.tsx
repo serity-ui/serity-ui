@@ -1,46 +1,44 @@
-import React, { useState } from "react"
+import React, { createContext, useContext, useState } from 'react'
 import './styles.css'
 
-function select() {
-  const [toggleOption, setToggleOption] = useState(false)
-
-  const [show, setShow] = useState('')
-
-  const handleSetShow = (data: any) => {
-    setShow(data)
-    console.log(data)
-  }
-
-  return (
-    <div className={`nice-select ${toggleOption ? 'active': ''}`} onClick={() => setToggleOption(!toggleOption)}>
-      <input type='text' value={show} className='textBox' placeholder='Dropdown Menu' readOnly />
-      <ul className='list'>
-        <li onClick={() => setShow('HTML')} >HTML</li>
-        <li onClick={() => setShow('JS')} >JS</li>
-        <li onClick={() => setShow('REACT')} >REACT</li>
-      </ul>
-    </div>
-  )
-}
-
-interface ListProps {
+interface Props {
   children: any
+  value?: string
 }
 
-const Select = ({children}: ListProps) =>  (
-  <select className='list'>
-    {children}
-  </select>
-)
+interface TriggerProps {
+  value?: string
+  placeholder: string
+}
 
-const SelectItem = ({children, ...props}: ListProps) => {
-  const { value} = props
+const ThemeContext = createContext('')
 
+export default function Select({ children }: Props) {
+  const [toggle, setToggle] = useState(false)
+  const [theme, setTheme] = useState<string>('')
   return (
-    <option value={value} >
-      {children}
-    </option>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={`nice-select ${toggle ? 'active' : ''}`} onClick={() => setToggle(!toggle)}>
+        {children}
+      </div>
+    </ThemeContext.Provider>
   )
 }
 
-export default select
+Select.Trigger = function SelectTrigger({ value, placeholder }: TriggerProps) {
+  const { theme } = useContext(ThemeContext)
+  let valor = value
+  if (theme !== '') {
+    valor = theme
+  }
+  return <input type='text' placeholder={placeholder} value={valor} readOnly />
+}
+
+Select.Content = function SelectContent({ children }: Props) {
+  return <ul className='list'>{children}</ul>
+}
+
+export const SelectItem = ({ children, value }: Props) => {
+  const { setTheme } = useContext(ThemeContext)
+  return <li onClick={() => setTheme(value)}>{children}</li>
+}
