@@ -12,16 +12,23 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 interface TriggerProps {
   value?: string
-  placeholder: string
+  placeholder?: string
 }
 
 const SelectContext = createContext<any>('')
 
-export default function Select({ children, theme = 'light', width = 200, onValueChange }: Props) {
+const Select =({
+  children,
+  theme = 'light',
+  width = 200,
+  onValueChange,
+}: Props) => {
   const [toggle, setToggle] = useState(false)
   const [select, setSelect] = useState<string>('')
   return (
-    <SelectContext.Provider value={{ theme, width, select, toggle, setSelect, onValueChange }}>
+    <SelectContext.Provider
+      value={{ theme, width, select, toggle, setSelect, onValueChange }}
+    >
       <Container
         theme={theme}
         width={width}
@@ -34,16 +41,18 @@ export default function Select({ children, theme = 'light', width = 200, onValue
   )
 }
 
-Select.Trigger = function SelectTrigger({ value, placeholder }: TriggerProps) {
+const  SelectTrigger = ({ value, placeholder }: TriggerProps) => {
   const { theme, select } = useContext(SelectContext)
   let valor = value
   if (select !== '') {
     valor = select
   }
-  return <Input theme={theme} placeholder={placeholder} value={valor} readOnly />
+  return (
+    <Input theme={theme} placeholder={placeholder} value={valor} readOnly />
+  )
 }
 
-Select.Content = function SelectContent({ children }: Props) {
+const SelectContent = ({ children }: Props) => {
   const { theme, width, toggle } = useContext(SelectContext)
   return (
     <List theme={theme} width={width} className={` ${toggle ? 'active' : ''}`}>
@@ -56,11 +65,11 @@ export const SelectItem = ({ children, value }: Props) => {
   const { theme, setSelect, onValueChange } = useContext(SelectContext)
   const elementRef = useRef(null)
 
-  const handleOnClick = (e) => {
+  const handleOnClick = (e: any) => {
     if (typeof onValueChange === 'function') {
-      setSelect(e.target.innerHTML)
       onValueChange(value)
     }
+    setSelect(e.target.innerHTML)
   }
 
   return (
@@ -69,3 +78,8 @@ export const SelectItem = ({ children, value }: Props) => {
     </ListItem>
   )
 }
+
+// Assign all sub components to main one
+Select.Trigger = SelectTrigger
+Select.Content = SelectContent
+export default Select
