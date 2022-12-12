@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components'
 
+interface ContainerProps {
+  width: number
+}
+
 export const Input = styled.input`
   ${(props: any) => {
     switch (props.theme) {
@@ -28,7 +32,7 @@ export const Input = styled.input`
     color: rgb(110, 86, 207);
   }
 `
-export const List = styled.ul`
+export const List = styled.ul<Pick<ContainerProps, 'width'>>`
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 4px;
@@ -100,7 +104,7 @@ export const ListItem = styled.li`
     color: #fff;
   }
 `
-export const Container = styled.div`
+export const Container = styled.div<ContainerProps>`
   -webkit-tap-highlight-color: transparent;
   border-radius: 4px;
   width: ${(props: any) => props.width}px;
